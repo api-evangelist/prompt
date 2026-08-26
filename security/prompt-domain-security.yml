@@ -1,0 +1,65 @@
+generated: '2026-08-26'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts (www.prompthealth.com written by probe-domain-security.py;
+  the promptemr.com application/identity/status hosts added by direct probe in the same pass)
+hosts:
+- host: www.prompthealth.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 16 18:04:11 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: authenticate.promptemr.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb  3 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  note: OpenID Connect identity provider for the Prompt application.
+- host: go.promptemr.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar  9 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 15724800
+  hsts_include_subdomains: true
+  note: Prompt application (SPA). Answers 200 with the same shell for every path.
+- host: status.promptemr.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 11 04:50:46 2026 GMT
+  hsts: false
+  hsts_max_age: null
+  note: Atlassian Statuspage — no HSTS header returned.
+domains:
+- domain: prompthealth.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: promptemr.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:servers.mcsv.net include:_spf.google.com include:5576817.spf10.hubspotemail.net
+    include:_spf.psm.knowbe4.com include:helpscoutemail.com include:spf.protection.outlook.com -all
+  dmarc: true
+  dmarc_policy: quarantine
+  dmarc_record: v=DMARC1; p=quarantine; sp=none; rua=mailto:re+smx8eqvipwe@inbound.dmarcdigests.com; ruf=mailto:dmarcforensics@promptemr.com;
+    fo=0:1:d:s; aspf=r; pct=5
+  note: Legacy/product domain still carrying the application, identity provider, status page and support
+    email. DMARC is enforced at pct=5 with sp=none, so 95% of failing mail is unaffected and subdomains
+    are exempted — weaker in practice than the policy token suggests. No CAA record and no DNSSEC.
+findings:
+- No CAA record on either prompthealth.com or promptemr.com — any public CA may issue for these names.
+- Neither domain is DNSSEC-signed.
+- prompthealth.com publishes DMARC p=reject; promptemr.com publishes p=quarantine with pct=5 and sp=none,
+  which is materially weaker for the domain that actually hosts the application, the identity provider
+  and support@promptemr.com.
+- HSTS is present on www.prompthealth.com, authenticate.promptemr.com and go.promptemr.com; absent on
+  status.promptemr.com.
+- All hosts negotiate TLS 1.3.
+x-evidence:
+  checked: '2026-08-26'

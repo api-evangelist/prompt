@@ -1,0 +1,135 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Prompt's own public pages (prompthealth.com FAQ, newsroom, product-update blog) plus the probed
+  OpenID Connect discovery document at authenticate.promptemr.com.
+basis: >-
+  Prompt publishes no machine-readable API contract, so nothing here is derived from a spec. Every
+  entry below is either (a) probed from the identity provider's discovery document, or (b) a claim
+  Prompt makes in prose on its own site. Contract-level conformance CANNOT be asserted for this
+  provider and is recorded as such.
+sector: healthcare
+regime: HIPAA / ONC health IT
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    authenticate.promptemr.com/.well-known/oauth-authorization-server returns RFC 8414 authorization
+    server metadata (HTTP 200) with authorization, token, revocation and device-code endpoints.
+  method: probed
+- id: oidc
+  conforms: true
+  evidence: >-
+    authenticate.promptemr.com/.well-known/openid-configuration returns an OpenID Connect Discovery
+    1.0 document (HTTP 200) with issuer, jwks_uri, userinfo_endpoint and the standard OIDC scopes.
+  method: probed
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: The same document is served at the RFC 8414 /.well-known/oauth-authorization-server path.
+  method: probed
+- id: rfc7636-pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported: [S256, plain]'
+  method: probed
+  note: '`plain` remains enabled alongside S256.'
+- id: rfc9449-dpop
+  conforms: true
+  evidence: 'dpop_signing_alg_values_supported: [ES256]'
+  method: probed
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: 'registration_endpoint: https://authenticate.promptemr.com/oidc/register'
+  method: probed
+- id: rfc9700-oauth-security-bcp
+  conforms: false
+  evidence: >-
+    The tenant still advertises the resource-owner `password` grant and the `implicit` grant, both
+    of which BCP 240 / OAuth 2.1 tell providers to stop supporting.
+  method: probed
+- id: rfc8615-well-known-uris
+  conforms: partial
+  evidence: >-
+    Discovery documents are served at /.well-known/ on authenticate.promptemr.com only. No
+    security.txt (RFC 9116), api-catalog (RFC 9727), agent-card or ai-plugin document is served on
+    any Prompt host.
+  method: probed
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: 404 on /.well-known/security.txt for every Prompt host probed.
+  method: probed
+- id: hipaa
+  conforms: claimed
+  evidence: >-
+    Prompt's own FAQ states the platform is "HIPAA compliant. Patient data is protected across all
+    workflows, roles, and integrations within the platform."
+  source: https://www.prompthealth.com/faq
+  method: searched
+  note: >-
+    A prose claim on the provider's site. No trust center, audit report, SOC 2 attestation letter or
+    certification page is published on any Prompt host — third-party software directories assert SOC 2
+    Type II and ONC certification, but Prompt itself does not, so neither is recorded as confirmed.
+- id: c-cda
+  conforms: claimed
+  evidence: >-
+    "Automatically receive inbound referrals as structured C-CDA documents instead of by fax" —
+    Prompt newsroom, Prompt + Kno2 announcement, 2026-06-07.
+  source: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  method: searched
+  contract_declared: false
+- id: direct-secure-messaging
+  conforms: claimed
+  evidence: >-
+    "Securely send and receive Direct Secure Messages (DSM) with referring providers, hospitals, and
+    other healthcare organizations" — same Kno2 announcement.
+  source: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  method: searched
+  contract_declared: false
+- id: carequality
+  conforms: claimed
+  evidence: Named as a connected network in the Prompt + Kno2 announcement (via Kno2 as the QHIN).
+  source: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  method: searched
+  contract_declared: false
+- id: commonwell
+  conforms: claimed
+  evidence: Named as a connected network in the Prompt + Kno2 announcement (via Kno2 as the QHIN).
+  source: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  method: searched
+  contract_declared: false
+- id: tefca
+  conforms: claimed
+  evidence: Named as a connected framework in the Prompt + Kno2 announcement (via Kno2 as the QHIN).
+  source: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  method: searched
+  contract_declared: false
+- id: fhir-r4
+  conforms: false
+  evidence: >-
+    No FHIR endpoint, capability statement, service base URL or FHIR mention appears anywhere on
+    prompthealth.com (356-URL sitemap walked 2026-08-26) or on any resolvable Prompt host.
+  method: searched
+- id: smart-on-fhir
+  conforms: false
+  evidence: No SMART on FHIR .well-known/smart-configuration or documentation found.
+  method: searched
+- id: us-core
+  conforms: false
+  evidence: No US Core profile or USCDI publication found on any Prompt host.
+  method: searched
+- id: hl7-v2
+  conforms: false
+  evidence: No HL7 v2 interface documentation published publicly.
+  method: searched
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: No public API contract or error reference exists to evaluate.
+  method: searched
+domain_standard_conformance:
+  declared_in_contract: false
+  note: >-
+    The healthcare domain standards Prompt touches (C-CDA, Direct Secure Messaging, Carequality /
+    CommonWell / TEFCA) are reached through the Kno2 partnership and are described only in prose on
+    Prompt's newsroom. There is no contract — no FHIR CapabilityStatement, no OpenAPI, no service
+    base URL publication — in which Prompt declares them, so the domain-standard signal cannot be
+    awarded from the contract as the rubric requires. This is a real, closeable gap for Prompt: the
+    integration exists, the declaration does not.

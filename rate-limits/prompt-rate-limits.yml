@@ -1,0 +1,23 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Full sitemap walk of https://www.prompthealth.com (356 URLs) and direct probes of every resolvable
+  Prompt host, 2026-08-26.
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status_code: null
+note: >-
+  No rate limits are published, because Prompt publishes no API. There is no developer portal, API
+  reference, or spec on any Prompt-controlled host in which limits could be stated, and no
+  unauthenticated API response was available to observe RateLimit-* / X-RateLimit-* / Retry-After
+  headers on. Recorded as an honest zero.
+x-evidence:
+  checked: '2026-08-26'
+  probes:
+  - url: https://www.prompthealth.com/sitemap.xml
+    status: 200
+  - url: https://www.prompthealth.com/openapi.json
+    status: 404
+  - url: https://api.promptemr.com/
+    status: '<no response> — DNS does not resolve'

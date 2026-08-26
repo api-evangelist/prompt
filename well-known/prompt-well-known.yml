@@ -1,0 +1,101 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Direct HTTP probes of every host Prompt controls that this profile could identify
+  (marketing site, application, identity provider, status page), 2026-08-26.
+hit_count: 2
+hosts:
+- host: https://authenticate.promptemr.com
+  note: >-
+    Prompt's customer-facing OpenID Connect identity provider (an Auth0 tenant on Prompt's own
+    promptemr.com domain — the application login at go.promptemr.com redirects here with
+    iss=https://authenticate.promptemr.com/). The two 200s below are the same RFC 8414 / OIDC
+    discovery document served at both canonical paths.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: prompt-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: prompt-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.prompthealth.com
+  note: >-
+    Marketing site (Webflow). Every /.well-known/ path returns a genuine 404 (88-byte body),
+    including the negative control, so this host serves no discovery surface.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://go.promptemr.com
+  note: >-
+    SPA catch-all — the Prompt application shell answers HTTP 200 with the same 1,079-byte
+    HTML document for EVERY path, including the negative control below. NOTHING on this host
+    is a served .well-known document; all 200s here are soft 404s and are recorded as misses.
+  soft_404_control:
+    path: /.well-known/this-should-not-exist-ae
+    status: 200
+    content_type: text/html
+    bytes: 1079
+  documents: []
+- host: https://status.promptemr.com
+  note: Atlassian Statuspage. All /.well-known/ paths 404 (294-byte body, matches the control).
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+x-evidence:
+  checked: '2026-08-26'
+  negative_controls:
+  - host: https://go.promptemr.com
+    path: /.well-known/this-should-not-exist-ae
+    status: 200
+    bytes: 1079
+  - host: https://www.prompthealth.com
+    path: /.well-known/this-should-not-exist-ae
+    status: 404
+    bytes: 88
+  - host: https://authenticate.promptemr.com
+    path: /.well-known/this-should-not-exist-ae
+    status: 404
+    bytes: 10
+  hosts_that_do_not_resolve:
+  - api.promptemr.com
+  - developers.promptemr.com
+  - developer.promptemr.com
+  - docs.promptemr.com
+  - api.prompthealth.com
+  - docs.prompthealth.com
+  - developers.prompthealth.com
+  - trust.prompthealth.com
+  - security.prompthealth.com
+notes:
+- No security.txt is served on any Prompt host, so no SecurityTxt pointer is emitted.
+- No agent card was found on any host, so per the pipeline contract no a2a/ artifact was written.

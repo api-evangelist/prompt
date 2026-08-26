@@ -1,0 +1,57 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  https://status.promptemr.com/ ; https://www.prompthealth.com/resources/topic/product-updates ;
+  https://www.prompthealth.com/legal/terms-and-conditions
+scope_note: >-
+  Prompt publishes no API, so there is no API versioning, deprecation or sunset policy to record.
+  What exists is a PRODUCT lifecycle: a major-version release cadence (V9, V10), a monthly
+  product-update log, and an operational status page.
+status_page:
+  present: true
+  url: https://status.promptemr.com/
+  platform: Atlassian Statuspage
+  http_status: 200
+  subscribe: [email, slack, rss]
+  machine_readable:
+  - https://status.promptemr.com/history.rss
+  - https://status.promptemr.com/history.json
+  observed: >-
+    "No problems detected" at probe time, with a 7-day incident window listing a resolved
+    performance incident on 2026-08-25 (~15 minutes).
+versioning:
+  scheme: major product versions
+  current: 'Version 10'
+  released: '2026-05-27'
+  previous:
+  - version: 'Version 9'
+    released: '2025-06-12'
+  api_versioning: none-published
+  note: Product release names, not an API version contract. No /v1/ style API version is documented.
+deprecation:
+  policy_published: false
+  sunset_header_support: unknown
+  deprecation_header_support: unknown
+  note: >-
+    No deprecation or sunset policy is published on any Prompt host, and there is no public API
+    surface for one to apply to. No `Deprecation` pointer is emitted.
+sla:
+  published: false
+  note: >-
+    No public uptime SLA or service-level commitment page found. Contract terms are in the general
+    Terms and Conditions at https://www.prompthealth.com/legal/terms-and-conditions.
+support:
+  url: https://www.prompthealth.com/support
+  email: support@promptemr.com
+  model: >-
+    US-based team including licensed clinicians and certified billers (per the provider FAQ).
+deprecated_operations: []
+x-evidence:
+  checked: '2026-08-26'
+  probes:
+  - url: https://status.promptemr.com/
+    status: 200
+  - url: https://www.prompthealth.com/resources/topic/product-updates
+    status: 200
+  - url: https://www.prompthealth.com/support
+    status: 200

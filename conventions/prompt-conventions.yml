@@ -1,0 +1,84 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Full walk of https://www.prompthealth.com/sitemap.xml (356 URLs, 2026-08-26), the provider FAQ and
+  support pages, plus direct probes of every resolvable Prompt host for a spec or API reference.
+applicability: none-published
+summary: >-
+  Prompt exposes no public API, so none of the cross-cutting runtime semantics below can be read
+  from a contract or from documentation. Every dimension is recorded as not-published rather than
+  as a failure of the API — there is no API to evaluate. This file exists to record that measurement
+  honestly, and to name exactly what an integrator would need Prompt to publish.
+authentication:
+  style: oauth2 / openid-connect (identity provider only)
+  detail: >-
+    authenticate.promptemr.com serves OIDC + RFC 8414 discovery and advertises the client_credentials
+    grant, so machine-to-machine tokens are technically issuable against the tenant. No public
+    documentation names an audience or resource server, so no API auth convention is documented.
+  see: authentication/prompt-authentication.yml
+idempotency:
+  supported: not-published
+  header: null
+  note: >-
+    No idempotency key, retry-safety or replay convention is documented. No `Idempotency` pointer is
+    emitted, because the pointer would assert a capability Prompt does not publish.
+pagination:
+  style: not-published
+  params: []
+  response_fields: []
+field_expansion:
+  supported: not-published
+metadata:
+  supported: not-published
+request_id_tracing:
+  supported: not-published
+  header: null
+versioning:
+  style: product-version only (V9, V10) — no API version contract
+  see: lifecycle/prompt-lifecycle.yml
+error_envelope:
+  format: not-published
+  problem_json: false
+  note: No error reference, status-code table or error envelope is published.
+rate_limit_signaling:
+  headers: []
+  note: not-published — see rate-limits/prompt-rate-limits.yml
+dry_run_mode:
+  supported: not-published
+  grade: na
+  note: >-
+    `na` here means "no public write surface exists to rehearse against", not "the provider offers
+    no rehearsal on a surface they do publish".
+reversibility:
+  grade: na
+  state: no-public-write-surface
+  note: >-
+    Prompt publishes no API and therefore no agent-callable write surface, so there is no reversal
+    operation, window, or docs URL to record. NOT graded `documented` or `verified` — asserting a
+    reversal window Prompt has never published would be the single most expensive fabrication
+    available in this artifact, because a reader would act on it.
+  reversal_operations: []
+  windows: []
+  provider_side_reversibility:
+    note: >-
+      Inside the application, clinical documentation, scheduling and billing workflows plainly have
+      human-facing undo/void/correction semantics, but none of it is described in any public
+      document this profile could reach, so nothing is recorded.
+what_prompt_would_need_to_publish:
+- A public API reference with a stable base URL.
+- An OpenAPI (or FHIR CapabilityStatement) at a linkable URL, referenced from /.well-known/api-catalog.
+- The audience/resource-server value that the existing client_credentials grant is meant to target.
+- An error reference with a documented envelope.
+- Published rate limits and the response headers the API returns on throttling.
+- A reversal/undo reference for write operations, with the window in which each reversal works.
+x-evidence:
+  checked: '2026-08-26'
+  probes:
+  - url: https://www.prompthealth.com/openapi.json
+    status: 404
+  - url: https://go.promptemr.com/openapi.json
+    status: 200
+    note: SPA catch-all shell (1,079 bytes of HTML), not a spec — recorded as a miss.
+  - url: https://www.prompthealth.com/sitemap.xml
+    status: 200
+    note: 356 URLs, none developer/API/reference.

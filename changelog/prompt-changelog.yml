@@ -1,0 +1,66 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.prompthealth.com/resources/topic/product-updates
+changelog:
+  url: https://www.prompthealth.com/resources/topic/product-updates
+  scheme: dated monthly product-update posts plus major version announcements
+  cadence: monthly
+  format: blog posts (HTML); no RSS/JSON changelog feed published
+  current_version: 'Version 10'
+  scope: whole product platform, not an API (Prompt publishes no API)
+entries:
+- title: What's new in Prompt (July 2026)
+  date: '2026-07-27'
+  url: https://www.prompthealth.com/blog/july-2026-product-updates
+  type: additions
+- title: What's new in Prompt (June 2026)
+  date: '2026-06-26'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-june-2026
+  type: additions
+- title: Prompt and Kno2 bring connected care to rehab therapy and chiropractic clinics
+  date: '2026-06-07'
+  url: https://www.prompthealth.com/company/news/prompt-and-kno2-bring-connected-care-to-rehab-therapy-and-chiropractic-clinics
+  type: additions
+  highlights:
+  - Inbound referrals received as structured C-CDA documents rather than fax
+  - Direct Secure Messaging with referring providers and hospitals
+  - Connectivity to Carequality, CommonWell and TEFCA through Kno2
+- title: Introducing Prompt Version 10 — AI that accelerates practice growth
+  date: '2026-05-27'
+  url: https://www.prompthealth.com/blog/introducing-prompt-version-10-ai-that-accelerates-practice-growth
+  type: major-release
+- title: What's new in Prompt (May 2026)
+  date: '2026-06-11'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-may-2026
+  type: additions
+- title: What's new in Prompt (April 2026)
+  date: '2026-04-27'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-april-2026
+  type: additions
+- title: What's new in Prompt (March 2026)
+  date: '2026-03-28'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-march-2026
+  type: additions
+- title: What's new in Prompt (February 2026)
+  date: '2026-02-15'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-february-2026
+  type: additions
+- title: What's new in Prompt (December 2025)
+  date: '2026-01-12'
+  url: https://www.prompthealth.com/blog/whats-new-in-prompt-december-2025
+  type: additions
+- title: 'Prompt''s Version 9 supercharges RCM, interoperability, and AI'
+  date: '2025-06-12'
+  url: https://www.prompthealth.com/blog/version-9-announcement
+  type: major-release
+  highlights:
+  - Kno2 clinical-communication integration
+  - Automated BI data extracts for customers
+breaking_changes_recorded: false
+note: >-
+  No breaking-change notices appear in the window read; the log is feature-additive and written for
+  clinic operators rather than integrators.
+x-evidence:
+  checked: '2026-08-26'
+  url: https://www.prompthealth.com/resources/topic/product-updates
+  http_status: 200

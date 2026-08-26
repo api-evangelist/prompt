@@ -64,5 +64,17 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Prompt is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/prompt_stock/
+Prompt (formerly Prompt Therapy Solutions / Prompt EMR; rebranded **Prompt Health** in June 2025) is a
+cloud-based, AI-assisted EMR and practice-management platform built exclusively for outpatient
+rehabilitation therapy — physical therapy, occupational therapy, speech-language pathology, pediatric
+therapy and chiropractic. Founded 2017 in Hoboken, New Jersey by Mike Dwyer and Adam Baliatico.
+
+**No public developer program.** As profiled on 2026-08-26, Prompt publishes no API reference, no
+OpenAPI/GraphQL/AsyncAPI contract, no SDK and no webhook catalog on any host it controls. The only
+machine-readable documents it serves publicly are an `llms.txt` written for AI assistants and the
+OpenID Connect discovery metadata for its application identity provider.
+
+- https://www.prompthealth.com/
+- https://www.prompthealth.com/llms.txt
+- https://status.promptemr.com/
+- https://forgeglobal.com/prompt_stock/ (secondary-market listing this profile was harvested from)

@@ -1,0 +1,74 @@
+generated: '2026-08-26'
+method: probed
+source: https://authenticate.promptemr.com/.well-known/openid-configuration
+note: >-
+  These are the scopes the Prompt identity provider advertises in `scopes_supported`. They are the
+  standard OpenID Connect scopes and OIDC standard-claim scopes only — Prompt publishes no
+  product/API permission scopes anywhere public, because it publishes no public API reference. Do
+  not read this file as an authorization model for a Prompt product API; it is the login surface.
+authorization_server: https://authenticate.promptemr.com/
+scope_count: 14
+scopes:
+- name: openid
+  description: Required OIDC scope; requests an ID token for the authenticated user.
+  standard: openid-connect-core
+- name: profile
+  description: Requests the OIDC standard profile claims.
+  standard: openid-connect-core
+- name: offline_access
+  description: Requests a refresh token for long-lived access.
+  standard: openid-connect-core
+- name: email
+  description: Requests the user's email address claim.
+  standard: openid-connect-core
+- name: email_verified
+  description: Requests the email verification status claim.
+  standard: openid-connect-core
+- name: address
+  description: Requests the OIDC standard address claim.
+  standard: openid-connect-core
+- name: phone
+  description: Requests the OIDC standard phone claims.
+  standard: openid-connect-core
+- name: name
+  description: Requests the user's full name claim.
+  standard: openid-connect-core
+- name: given_name
+  description: Requests the user's given name claim.
+  standard: openid-connect-core
+- name: family_name
+  description: Requests the user's family name claim.
+  standard: openid-connect-core
+- name: nickname
+  description: Requests the user's nickname claim.
+  standard: openid-connect-core
+- name: picture
+  description: Requests the user's profile picture claim.
+  standard: openid-connect-core
+- name: created_at
+  description: Requests the account creation timestamp claim (identity-provider extension).
+  standard: provider-extension
+- name: identities
+  description: Requests linked-identity metadata (identity-provider extension).
+  standard: provider-extension
+claims_supported:
+- aud
+- auth_time
+- created_at
+- email
+- email_verified
+- exp
+- family_name
+- given_name
+- iat
+- identities
+- iss
+- name
+- nickname
+- phone_number
+- picture
+- sub
+x-evidence:
+  fetched: '2026-08-26'
+  url: https://authenticate.promptemr.com/.well-known/openid-configuration
+  http_status: 200

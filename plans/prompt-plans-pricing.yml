@@ -1,0 +1,31 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.prompthealth.com/faq
+plan_count: 0
+pricing_page_published: false
+pricing_model: flat-rate per provider, quoted by sales
+currency: USD
+plans: []
+note: >-
+  Prompt publishes no pricing page and no plan tiers. The 356-URL sitemap contains no /pricing route;
+  the closest surface is a quote-request form at https://www.prompthealth.com/demo/quote (HTTP 200).
+  The provider's own FAQ states the model without any numbers: "Prompt uses transparent, flat-rate
+  per-provider pricing. There are no hidden fees for essentials like reminders, digital intake, HEP
+  delivery, or reporting," and directs buyers to "Contact our sales team for details on contract
+  options." Recorded as plan_count 0 — an honest zero, not an unchecked field. No `Pricing` pointer
+  is emitted in apis.yml because no pricing page exists to point at.
+included_at_no_extra_charge_per_provider_faq:
+- appointment reminders
+- digital intake
+- home exercise program delivery
+- reporting
+x-evidence:
+  checked: '2026-08-26'
+  probes:
+  - url: https://www.prompthealth.com/faq
+    status: 200
+  - url: https://www.prompthealth.com/demo/quote
+    status: 200
+  - url: https://www.prompthealth.com/sitemap.xml
+    status: 200
+    note: no /pricing or /plans URL present

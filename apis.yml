@@ -1,17 +1,37 @@
 aid: prompt
 name: Prompt
-description: 'Prompt is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Prompt (formerly Prompt Therapy Solutions / Prompt EMR, rebranded Prompt Health in June 2025) is a
+  cloud-based, AI-assisted electronic medical record and practice-management platform built exclusively
+  for outpatient rehabilitation therapy — physical therapy, occupational therapy, speech-language
+  pathology, pediatric therapy and chiropractic. Founded in 2017 in Hoboken, New Jersey by Mike Dwyer
+  and Adam Baliatico, with its first product launched in 2019, the platform unifies scheduling,
+  clinical documentation, billing and claims, patient engagement, analytics and compliance in a single
+  system, and is extended by the Sidekick (AI scribing), Insight (compliance analytics), Plus
+  (scheduling automation), Engage (patient app), Kiosk (self check-in), Compensation and RCM modules.
+  Prompt reports use by 1,000+ United States outpatient rehab and musculoskeletal practices. As of this
+  profile the company publishes no public developer program: no API reference, OpenAPI/GraphQL contract,
+  SDK or webhook catalog is reachable on any host it controls. The only machine-readable surface it
+  serves publicly is the OpenID Connect discovery document for the application identity provider at
+  authenticate.promptemr.com, plus an llms.txt written for AI assistants.
 url: https://raw.githubusercontent.com/api-evangelist/prompt/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/663e8ac23e061e4b80b016d0/67a6825f2013c062c6bd73ae_7c74bf9fc7e6e57d9f6d7e619f90bfb9_prompt-home-og.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Healthcare
+- Electronic Medical Records
+- Practice Management
+- Physical Therapy
+- Rehabilitation Therapy
+- Health IT
+- Medical Billing
+- Patient Engagement
+- Artificial Intelligence
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +39,73 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/prompt-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/prompt_stock/
+  url: https://www.prompthealth.com/
+- type: Company
+  url: https://www.prompthealth.com/company
+- type: Support
+  url: https://www.prompthealth.com/support
+- type: Blog
+  url: https://www.prompthealth.com/blog
+- type: ChangeLog
+  url: https://www.prompthealth.com/resources/topic/product-updates
+- type: StatusPage
+  url: https://status.promptemr.com/
+- type: Login
+  url: https://go.promptemr.com/
+- type: TermsOfService
+  url: https://www.prompthealth.com/legal/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.prompthealth.com/legal/privacy-policy
+- type: FAQ
+  url: https://www.prompthealth.com/faq
+- type: LLMsTxt
+  url: llms/prompt-llms.txt
+- type: WellKnown
+  url: well-known/prompt-well-known.yml
+- type: OpenIDConnect
+  url: well-known/prompt-openid-configuration.json
+- type: Authentication
+  url: authentication/prompt-authentication.yml
+- type: OAuthScopes
+  url: scopes/prompt-scopes.yml
+- type: Conformance
+  url: conformance/prompt-conformance.yml
+- type: Lifecycle
+  url: lifecycle/prompt-lifecycle.yml
+- type: ChangeLog
+  url: changelog/prompt-changelog.yml
+- type: Conventions
+  url: conventions/prompt-conventions.yml
+- type: Plans
+  url: plans/prompt-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/prompt-rate-limits.yml
+- type: Packages
+  url: packages/prompt-packages.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 13
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Prompt ships rehab-therapy EMR software only as an end-user product: a full walk of its 356-URL
+    sitemap returns no developer, API, integration-docs or reference page, api./developers./docs.
+    subdomains on both promptemr.com and prompthealth.com do not resolve in DNS, and the only
+    machine-readable document served on any host it controls is the OpenID Connect discovery
+    metadata for the application login at authenticate.promptemr.com.
+  evidence:
+  - url: https://www.prompthealth.com/sitemap.xml
+    status: 200
+  - url: https://www.prompthealth.com/openapi.json
+    status: 404
+  - url: https://www.prompthealth.com/.well-known/api-catalog
+    status: 404
+  - url: https://authenticate.promptemr.com/.well-known/openid-configuration
+    status: 200
+  checked: '2026-08-26'
