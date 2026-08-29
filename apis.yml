@@ -15,6 +15,17 @@ description: >-
   serves publicly is the OpenID Connect discovery document for the application identity provider at
   authenticate.promptemr.com, plus an llms.txt written for AI assistants.
 url: https://raw.githubusercontent.com/api-evangelist/prompt/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/663e8ac23e061e4b80b016d0/67a6825f2013c062c6bd73ae_7c74bf9fc7e6e57d9f6d7e619f90bfb9_prompt-home-og.png
 x-type: company
 x-source: harvest:secondary-market
