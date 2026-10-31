@@ -64,17 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Prompt (formerly Prompt Therapy Solutions / Prompt EMR; rebranded **Prompt Health** in June 2025) is a
-cloud-based, AI-assisted EMR and practice-management platform built exclusively for outpatient
-rehabilitation therapy — physical therapy, occupational therapy, speech-language pathology, pediatric
-therapy and chiropractic. Founded 2017 in Hoboken, New Jersey by Mike Dwyer and Adam Baliatico.
+Prompt (formerly Prompt Therapy Solutions / Prompt EMR, rebranded Prompt Health in June 2025) is a cloud-based, AI-assisted electronic medical record and practice-management platform built exclusively for outpatient rehabilitation therapy — physical therapy, occupational therapy, speech-language pathology, pediatric therapy and chiropractic. Founded in 2017 in Hoboken, New Jersey by Mike Dwyer and Adam Baliatico, with its first product launched in 2019, the platform unifies scheduling, clinical documentation, billing and claims, patient engagement, analytics and compliance in a single system, and is extended by the Sidekick (AI scribing), Insight (compliance analytics), Plus (scheduling automation), Engage (patient app), Kiosk (self check-in), Compensation and RCM modules. Prompt reports use by 1,000+ United States outpatient rehab and musculoskeletal practices. As of this profile the company publishes no public developer program: no API reference, OpenAPI/GraphQL contract, SDK or webhook catalog is reachable on any host it controls. The only machine-readable surface it serves publicly is the OpenID Connect discovery document for the application identity provider at authenticate.promptemr.com, plus an llms.txt written for AI assistants.
 
-**No public developer program.** As profiled on 2026-08-26, Prompt publishes no API reference, no
-OpenAPI/GraphQL/AsyncAPI contract, no SDK and no webhook catalog on any host it controls. The only
-machine-readable documents it serves publicly are an `llms.txt` written for AI assistants and the
-OpenID Connect discovery metadata for its application identity provider.
+**Areas:** Company · Healthcare · Electronic Health Records · Practice Management · Physical Therapy · Rehabilitation Therapy · Health IT · Medical Billing · Patient Engagement · Artificial Intelligence
 
-- https://www.prompthealth.com/
-- https://www.prompthealth.com/llms.txt
-- https://status.promptemr.com/
-- https://forgeglobal.com/prompt_stock/ (secondary-market listing this profile was harvested from)
+## Prompt on APIs.io
+
+Everything profiled for Prompt is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/prompt/](https://apis.io/providers/prompt/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Prompt Authentication](https://apis.io/security/prompt/prompt-authentication/)
+- [Prompt Domain Security](https://apis.io/security/prompt/prompt-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Prompt Scopes](https://apis.io/scopes/prompt/prompt-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Prompt Plans Pricing](https://apis.io/plans/prompt/prompt-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Prompt Rate Limits](https://apis.io/rate-limits/prompt/prompt-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.prompthealth.com/)
+- [Support](https://www.prompthealth.com/support)
+- [Changelog](https://www.prompthealth.com/resources/topic/product-updates)
+- [Blog](https://www.prompthealth.com/blog)
+- [Terms of service](https://www.prompthealth.com/legal/terms-and-conditions)
+- [Privacy policy](https://www.prompthealth.com/legal/privacy-policy)
+- [Status](https://status.promptemr.com/)
+
+## API Evangelist rating
+
+**Kin Score 24.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 27.6 |
+
+**Agent readiness 17.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 35.3** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/prompt/](https://apis.io/providers/prompt/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Prompt: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/prompt/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
